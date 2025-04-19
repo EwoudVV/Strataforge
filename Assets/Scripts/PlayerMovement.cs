@@ -35,8 +35,9 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //get input from wasd or arrow keys
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        //GetAxisRaw for instant response
+        float horizontal = Input.GetAxisRaw("Horizontal"); 
+        float vertical = Input.GetAxisRaw("Vertical");
 
         Vector3 moveDirection = cameraTransform.forward * vertical + cameraTransform.right * horizontal; //calculate the move direction based on camera direction
         moveDirection.y = 0; //ignore the y component to prevent moving up/down
